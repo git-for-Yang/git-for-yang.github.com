@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>键盘事件(keyDown,keyUp,keyPress)以及跨浏览器封装获取className的方法</title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding: 0;
+			}
+			#title{
+				width:400px;
+				height: 70px;
+				margin: 0 auto;
+				padding-top:30px; 
+				text-align: center;font-size: 24px;
+				font-weight: bold;
+				color: #F00;
+			}
+			.btns{
+				width: 190px;
+				height: 30px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			.btns span{
+				float: left;
+				width:80px;
+				height: 28px;
+				line-height: 28px;
+				background-color: #036;
+				border: 1px solid #eee;
+				border-radius: 7px;
+				margin-right: 10px;
+				color:#FFF;
+				font-size: 14px;
+				font-family: "微软雅黑";
+				cursor:pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="title" class="title">开始抽奖啦！</div>
+		<div class="btns">
+			<span id="play">开 始</span>
+			<span id="stop">结 束</span>
+		</div>
+		<script type="text/javascript">
+			var contents = ['300元优惠券','iphone5','ipad','联想电脑','谢谢参与','年度会员卡','u盘','打印机'];
+			var timer = null;
+			var flag = 0;
+
+			//跨浏览器封装获取className的方法
+			function getClass(claName,parent){
+				var oParent = parent?document.getElementById(parent):document,
+					eles = [];
+					elements = oParent.getElementsByTagName("*");
+					for(var i=0,l=elements.length;i<l;i++){
+						if (elements[i].className == claName) {
+							eles.push(elements[i]);
+						}
+					}
+					return eles;
+			}
+			//页面加载完毕后执行的函数
+			window.onload=function(){
+				var title = getClass("title");
+				var play = document.getElementById("play");
+				var stop = document.getElementById("stop");
+				//鼠标事件
+				play.onclick = playFun;
+				stop.onclick = stopFun;
+				//键盘事件,回车键的键码是13
+				document.onkeyup = function(event){
+					event = event || window.event;
+					if(event.keyCode==13 && flag==0){
+						playFun();
+						flag = 1;
+					}else{
+						stopFun();
+						flag = 0;
+					}
+				}
+			}
+			//开始抽奖
+			function playFun(){
+				var play = document.getElementById("play");
+				clearInterval(timer);
+				var timer = setInterval(function(){
+					var random = Math.floor(Math.random()*contents.length);
+					title.innerHTML = contents[random];
+				},50);
+				play.style.background="#999";
+			}
+			//结束抽奖
+			function stopFun(){
+				clearInterval(timer);
+				var play = document.getElementById("play");
+				play.style.background="#036";
+			}		
+		</script>
+	</body>
+</html>

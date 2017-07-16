@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+
+<head>
+    <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+
+</head>
+
+<body>
+    <p>替换 "microsoft" 为 "W3cSchool" :</p>
+    <button onclick="myfunction()">点我</button>
+    <p id="demo">请访问Microsoft!</p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <script>
+    /******
+    正则表达式：匹配符合某个规则的字符串搜索模式，用于文本搜索和文本替换
+    test():检索字符串中指定的值，返回true或false;
+    exec():检索字符串中指定的值，返回找到的值并确定其位置,若无则返回null;
+    search():检索与正则表达式相匹配的值,返回相匹配子字符串的起始位置;
+    replace():替换与正则表达式相匹配的值;
+    match():检索字符串中指定的值，或找到一个或多个正则表达式的匹配，若无则         返回null，否则返回一个数组;
+
+    ***********/
+    var patt1 = new RegExp("e",'i');
+    // var patt1 = /e/igm;
+
+    console.log(patt1.test("English")); //true
+    console.log(patt1.exec("English")); //E
+
+    //replace()
+    function myfunction(){
+        var str = document.getElementById("demo").innerHTML;
+        var txt = str.replace(/microsoft/i,"helloworld");
+        //var txt = str.replace("microsoft","helloworld");
+        document.getElementById("demo").innerHTML = txt;
+
+
+        //search()
+        var n = str.search("Microsoft");
+        //var n = str.search(/microsoft/i);
+        document.getElementById("demo1").innerHTML = n;//3
+
+
+        //match()
+        var test = "The rain in SPAIN stays mainly in the plain"; 
+        var testend = test.match(/ain/ig);
+        document.getElementById("demo2").innerHTML = testend; 
+                      //ain,AIN,ain,ain
+    }
+    </script>
+</body>
+
+</html>

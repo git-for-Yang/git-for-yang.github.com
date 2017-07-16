@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+
+<head>
+    <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+
+<body>
+    <div class="div1" id="div1">
+        我是一颗小草啊啊啊啊！！！！
+    </div>
+    <div class="div1">
+        我是一颗大树啊啊啊啊！！！！
+    </div>
+    <div class="div1">
+        我是一颗雨滴啊啊啊啊！！！！
+    </div>
+    <div class="div1">
+        我是一对对对啊啊啊啊！！！！
+    </div>
+    <div class="div1">
+        我是一只小鸟啊啊啊啊！！！！
+    </div>
+    <script>
+    var div = document.getElementsByTagName("div");
+    for (var i = 0; i < div.length; i++) {
+        div[i].onclick = function() {
+            alert(this.innerHTML);
+        };
+    }
+    </script>
+</body>
+
+</html>

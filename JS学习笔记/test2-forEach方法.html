@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<p>点击按钮列出数组的每个元素。</p>
+		<button onclick="numbers1.forEach(myfunction1)">点我</button>
+		<p id="demo"></p>
+		<script>
+			var numbers1 = [4,9,16,25];
+			function myfunction1(num,index){	
+				var demo = document.getElementById("demo");
+				demo.innerHTML =demo.innerHTML+ "index[" + index + "]: " + num + "<br>";
+			}
+		</script>
+	</body>
+</html>
+
+<br>
+<br>
+
+/*forEach改变了原数组*/
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<p>点击按钮将数组中的所有值乘以特定数字。</p>
+		<p>乘以：<input type="number" id="example" value="10"></p>
+		<button onclick="numbers2.forEach(myfunction2)">点我</button>
+		<p>计算后的值：<span id="demo2"></span></p>
+		<script>
+			numbers2=[65,44,12,4];
+			function myfunction2(num,index,arr){
+				var input = document.getElementById("example").value;
+				var demo2 = document.getElementById("demo2");
+				 arr[index] = num*input;
+				 demo2.innerHTML = numbers2;
+			}
+		</script>
+	</body>
+</html>

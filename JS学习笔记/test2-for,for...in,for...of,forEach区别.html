@@ -1,0 +1,67 @@
+ for...in遍历数组的下标值（键），遍历对象的属性名；
+<br> for...of遍历数组的值，遍历对象会提示不是一个迭代器而报错；
+<br> for也是可以遍历数组下标志（键）或值，不能遍历对象
+<br> forEach()方法调用数组的每个元素，并将元素传递给回调函数，会改变原数组；
+<br> map()方法返回一个新数组，新数组的元素是原始数组元素调用函数处理后的值，不会改变原数组。
+<br>
+<!DOCTYPE>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script>
+    let x;
+    let a = ['A', 'B', 'C'];  //数组
+    let b = {
+        name: '杨小姐',
+        age: '18'
+    };                        //对象
+
+    for (x in a) {
+        console.log(x);//0,1,2
+    }
+    for (x of a) {
+        console.log(x);//A,B,C
+    }
+    for(var c=0; c<a.length;c++){
+    	console.log(a[c]);//ABC
+    }
+
+
+    for(x in b){
+    	console.log(x);//name,age
+    }
+    for(x of b){
+    	console.log(x);//出错
+    }
+    
+    </script>
+</body>
+
+</html>
+<br>
+<br>
+<br>所以遍历数组用for...of,for...of可以遍历数组里的值，若需要数组索引则可以用keys(),若需要键值对则entries();
+<br>遍历对象用for...in,for...in可以遍历数组的下标，也可以遍历对象的属性名；
+<br>
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			let arr=['A','B','C','D'];
+			for(let index1 of arr.keys()){
+				document.write(index1);
+			}
+			for(let [index2,val] of arr.entries()){
+				document.write('<br>'+index2+':'+val);
+			}
+			
+		</script>
+	</body>
+</html>

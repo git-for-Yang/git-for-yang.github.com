@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+</head>
+<body>
+    <p>输入你的小写字母：<input id="input" type="text" onchange="change()"></p>
+    <p>当你离开输入框后，函数将被触发，将小写字母转为大写字母。</p>
+    <script>
+        function change(){
+            var input = document.getElementById("input");
+            input.value = input.value.toUpperCase();
+        }
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+</head>
+<body>
+    <div id="div1" onmouseover="over(this)" onmouseout="out(this)" style="background-color:red;width:130px;height:20px;padding:40px">Mouse Over Me
+    </div>
+    <script>
+        function over(){
+            var div1 = document.getElementById("div1");
+            div1.innerHTML = "Thank you!";
+        }
+        function out(obj){
+            obj.innerHTML = "Mouse Over Me";
+        }
+    </script>
+</body>
+</html>
+
+<br>
+<br>
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+</head>
+<body>
+    <p>点击按钮执行 displayDate() 函数.</p>
+    <p>HTML DOM为HTML元素(这里为button分配onclick事件)分配事件</p>
+    <button id="demo">点我</button>
+    <p id="show"></p>
+    <script>
+        var button = document.getElementById("demo");
+        button.onclick = function(){
+            displayDate();
+        }
+        function displayDate(){
+            var show = document.getElementById("show");
+            show.innerHTML = Date();
+        }
+    </script>
+</body>
+</html>
+
+
+<br>
+<br>
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+<body>
+    <p class="para">这是一个小段落，hover()方法当鼠标移动到这个元素上时，会触发指定的第一个函数(mouseenter);当鼠标移出这个元素时，会触发指定的第二个函数(mouseleave)。</p>
+    <script>
+        $(document).ready(function(){
+            $(".para").hover(function(){
+                alert("你进入了 p!");
+            },function(){
+                alert("你离开了 p!")
+            });
+        });
+    </script>
+</body>
+</html>

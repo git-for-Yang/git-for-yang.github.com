@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+
+<head>
+    <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+
+<body>
+    <p>点击按钮检测数组的所有元素是否都大于输入框中指定的数字。</p>
+    <p>最小年龄: <input type="number" value="22" id="example"></p>
+    <button onclick="myfunction()">点我</button>
+    <p >数组ages=[32,33,12,40]里面的值是否所有年龄都符号条件? <span id="demo"></span></p>
+    <script>
+        var ages=[32,33,12,40];
+        function myfunction(){
+            
+            var demo=document.getElementById("demo");
+            demo.innerHTML=ages.every(check);
+        }
+        function check(arg){
+            var example=document.getElementById("example").value;
+            return arg>=example;
+        }
+    </script>
+</body>
+
+</html>

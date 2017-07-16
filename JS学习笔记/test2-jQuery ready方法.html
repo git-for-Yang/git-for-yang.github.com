@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+
+<head>
+    <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+
+<body>
+    <p>This is a paragraph.</p>
+    <button>Toggle between slide up and slide down for a p element</button>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+               alert($("p").text()) ;
+               $("p").slideToggle();
+            });
+        });
+    </script>
+</body>
+
+</html>
